@@ -13,7 +13,8 @@
     <div class="container">
         <h3 class="text-center mb-3">Transaksi</h3>
         <a href="../../index.php" class="btn btn-warning">Kembali</a>
-        <a href="addTransaksi.php" onclick="confirm('Konfirmasi Tambah Transaksi Baru?')" class="btn btn-primary">Tambah Transaksi</a>
+        <a href="addTransaksi.php" onclick="return confirm('Konfirmasi Tambah Transaksi Baru?')" class="btn btn-primary">Tambah Transaksi</a>
+
         <div
             class="table-responsive">
             <table
@@ -39,7 +40,11 @@
 
                             <td>
                             <td>
-                                <?= ($row['status'] !== "Selesai") ? '<a href="detail.php?id_transaksi=' . $row['id_transaksi'] . '" class="btn btn-warning">Lengkapi Transaksi</a> ' . '<a href="hapus.php?id_transaksi=' . $row['id_transaksi'] . '" class="btn btn-danger">Batalkan</a>' : '' ?>
+                                <?= ($row['status'] !== "Selesai") ?
+                                    '<a href="detail.php?id_transaksi=' . $row['id_transaksi'] . '" class="btn btn-warning">Lengkapi Transaksi</a> ' .
+                                    '<a href="hapusTransaksi.php?id_transaksi=' . $row['id_transaksi'] . '" class="btn btn-danger" onclick="return confirm(\'Apakah Anda yakin ingin membatalkan transaksi ini?\')">Batalkan</a>'
+                                    : '' ?>
+
 
                             </td>
 
