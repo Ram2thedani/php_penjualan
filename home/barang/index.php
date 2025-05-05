@@ -28,14 +28,19 @@
                 <tbody>
                     <?php
                     include '../../config/koneksi.php';
-                    $result = mysqli_query($conn, "SELECT * FROM barang");
+                    $result = mysqli_query($conn, "SELECT 
+                    barang.id_barang, 
+                    barang.nama_barang,
+                    supplier.nama_supplier,
+                    barang.harga FROM barang 
+                    INNER JOIN supplier ON barang.id_supplier = supplier.id_supplier");
 
                     while ($row = mysqli_fetch_assoc($result)) :
                     ?>
                         <tr>
                             <td><?= $row['id_barang'] ?></td>
                             <td><?= $row['nama_barang'] ?></td>
-                            <td><?= $row['id_supplier'] ?></td>
+                            <td><?= $row['nama_supplier'] ?></td>
                             <td><?= $row['harga'] ?></td>
                             <td><a href="viewedit.php?id_barang=<?php echo $row['id_barang'] ?>" class="btn btn-warning">Edit</a>
                                 <a href="hapus.php?id_barang=<?php echo $row['id_barang'] ?>" class="btn btn-danger">Hapus</a>
