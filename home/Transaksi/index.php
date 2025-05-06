@@ -43,7 +43,7 @@
                                 <?= ($row['status'] !== "Selesai") ?
                                     '<a href="detail.php?id_transaksi=' . $row['id_transaksi'] . '" class="btn btn-warning">Lengkapi Transaksi</a> ' .
                                     '<a href="hapusTransaksi.php?id_transaksi=' . $row['id_transaksi'] . '" class="btn btn-danger" onclick="return confirm(\'Apakah Anda yakin ingin membatalkan transaksi ini?\')">Batalkan</a>'
-                                    : '' ?>
+                                    : '<a href="cetak.php?id_transaksi=' . $row['id_transaksi'] . '" class="btn btn-success">Cetak Struk</a> ' ?>
 
 
                             </td>
